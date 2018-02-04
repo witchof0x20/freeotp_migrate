@@ -19,20 +19,16 @@ extern crate argparse;
 //XML Parsing
 extern crate xml;
 // Json parsing
-extern crate serde;
-#[macro_use]
-extern crate serde_derive;
-extern crate serde_json;
-// URI encoding
-extern crate url;
-// Base32 encoding
 extern crate base32;
-// QR code generation
 #[cfg(feature = "qrcode_create")]
 extern crate image;
 #[cfg(feature = "qrcode_create")]
 extern crate qrcode;
-//Include the Token object
+extern crate serde;
+#[macro_use]
+extern crate serde_derive;
+extern crate serde_json;
+extern crate url;
 mod token;
 
 // Argument parsing
