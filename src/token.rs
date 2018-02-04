@@ -74,7 +74,7 @@ pub enum TokenType {
     HOTP,
 }
 
-/// Set default value for TokenType
+/// Set default value for `TokenType`
 impl Default for TokenType {
     /// Returns the default value (TOTP)
     fn default() -> TokenType {
@@ -89,9 +89,9 @@ impl fmt::Display for TokenType {
         write!(
             formatter,
             "{}",
-            match self {
-                &TokenType::TOTP => "TOTP",
-                &TokenType::HOTP => "HOTP",
+            match *self {
+                TokenType::TOTP => "TOTP",
+                TokenType::HOTP => "HOTP",
             }
         )
     }
@@ -105,7 +105,7 @@ pub enum TokenAlgorithm {
     SHA512,
 }
 
-/// Set default value for TokenType
+/// Set default value for `TokenType`
 impl Default for TokenAlgorithm {
     /// Returns the default value (TOTP)
     fn default() -> TokenAlgorithm {
@@ -120,10 +120,10 @@ impl fmt::Display for TokenAlgorithm {
         write!(
             formatter,
             "{}",
-            match self {
-                &TokenAlgorithm::SHA1 => "SHA1",
-                &TokenAlgorithm::SHA256 => "SHA256",
-                &TokenAlgorithm::SHA512 => "SHA512",
+            match *self {
+                TokenAlgorithm::SHA1 => "SHA1",
+                TokenAlgorithm::SHA256 => "SHA256",
+                TokenAlgorithm::SHA512 => "SHA512",
             }
         )
     }
@@ -180,10 +180,7 @@ impl<'de> fmt::Display for Token<'de> {
             utf8_percent_encode(&label, DEFAULT_ENCODE_SET),
             base32_encode(
                 Alphabet::RFC4648 { padding: true },
-                &self.secret
-                    .iter()
-                    .map(|c| c.clone() as u8)
-                    .collect::<Vec<u8>>()[..]
+                &self.secret.iter().map(|c| *c as u8).collect::<Vec<u8>>()[..]
             ),
             utf8_percent_encode(&issuer, DEFAULT_ENCODE_SET),
             utf8_percent_encode(&self.algorithm.to_string(), DEFAULT_ENCODE_SET),

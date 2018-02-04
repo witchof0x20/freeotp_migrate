@@ -104,7 +104,7 @@ fn main() {
             // Read the token data
             Ok(XmlEvent::Characters(characters)) => {
                 // Don't parse the list entry
-                if characters.chars().next().unwrap() == '{' {
+                if characters.starts_with('{') {
                     // Parse each entry as json
                     let token: Token = match serde_json::from_str(&characters) {
                         Ok(token) => token,
