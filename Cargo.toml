@@ -1,0 +1,23 @@
+[package]
+name = "freeotp_migrate"
+version = "0.1.0"
+description = "Reads tokens.xml from the FreeOTP and generates new OTP urls to be used in any 2FA App"
+authors = ["witchof0x20"]
+license = "GPL-3.0"
+categories = ["utility"]
+readme = "Readme.md"
+
+[features]
+qrcode_create = ["qrcode", "image"]
+
+[dependencies]
+argparse = "0.2"
+xml-rs = "0.6"
+serde_derive = "1.0"
+serde = "1.0"
+serde_json = "1.0"
+url ="1.5"
+base32 = "0.3"
+
+qrcode = { version = "0.4.0", optional = true, default-features = true}
+image = { version = "0.13", optional = true } 
