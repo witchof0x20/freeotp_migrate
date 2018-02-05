@@ -11,9 +11,9 @@ adb backup ~/freeotp.ab org.fedorahosted.freeotp
 Clone a backup extractor tool
 ```bash
 git clone https://github.com/nelenkov/android-backup-extractor
-```bash
-Build it
 ```
+Build it
+```bash
 ./gradlew
 ```
 Run it with
@@ -23,7 +23,7 @@ java -jar build/libs/abe-all.jar unpack ~/freeotp.ab ~/freeotp.tar
 Type in the password you set if you set one
 
 Extract the specific file
-```
+```bash
 tar xvf ~/freeotp.tar apps/org.fedorahosted.freeotp/sp/tokens.xml
 mv apps/org.fedorahosted.freeotp/sp/tokens.xml .
 rm -rf apps
