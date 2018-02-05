@@ -40,8 +40,9 @@ If you want QR codes for each token, use these steps
 mkdir ~/qr
 cargo run --release -- -i ~/tokens.xml -q -o ~/qr
 ```
+A set of PNG files with a QR code for each OTP token is now stored in `~/qr`
 ### URIs
-If you just want the URI for each token, use this command
+If you just want the URI to import each token, use this command
 ```bash
 cargo run --release -- -i ~/tokens.xml
 ```
