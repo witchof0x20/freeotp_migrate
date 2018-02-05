@@ -8,6 +8,7 @@ categories = ["utility"]
 readme = "Readme.md"
 
 [features]
+default = ["qrcode_create"]
 qrcode_create = ["qrcode", "image"]
 
 [dependencies]

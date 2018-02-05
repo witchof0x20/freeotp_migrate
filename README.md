@@ -25,7 +25,23 @@ Type in the password you set if you set one
 Extract the specific file
 ```bash
 tar xvf ~/freeotp.tar apps/org.fedorahosted.freeotp/sp/tokens.xml
-mv apps/org.fedorahosted.freeotp/sp/tokens.xml .
+mv apps/org.fedorahosted.freeotp/sp/tokens.xml ~/tokens.xml
 rm -rf apps
 ```
 You now have a tokens.xml file that can be used with this program
+## Using this program
+```bash
+git clone https://github.com/witchof0x20/freeotp_migrate
+cd freeotp_migrate
+```
+### QR codes
+If you want QR codes for each token, use these steps
+```bash
+mkdir ~/qr
+cargo run --release -- -i ~/tokens.xml -q -o ~/qr
+```
+### URIs
+If you just want the URI for each token, use this command
+```bash
+cargo run --release -- -i ~/tokens.xml
+```
